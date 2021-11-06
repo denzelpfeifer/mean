@@ -1,0 +1,186 @@
+definitions:
+  Surveys:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          properties:
+            href: {description: Link to the survey., type: string, x-ms-summary: Link,
+              x-ms-visibility: advanced}
+            id: {description: The survey identifier., type: string, x-ms-summary: Survey
+                Id, x-ms-visibility: advanced}
+            title: {description: The title of the survey., type: string, x-ms-summary: Title,
+              x-ms-visibility: important}
+  SurveyCollectors:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          properties:
+            href: {description: Link to collector., type: string, x-ms-summary: Link,
+              x-ms-visibility: advanced}
+            name: {description: The name of the collector., type: string, x-ms-summary: Name,
+              x-ms-visibility: important}
+            id: {description: The collector identifier., type: string, x-ms-summary: Collector
+                Id, x-ms-visibility: advanced}
+  SurveyCollector:
+    type: object
+    properties:
+      status: {description: The status of the survey., type: string, x-ms-summary: Status,
+        x-ms-visibility: important}
+      redirect_url: {description: Redirect to this url upon survey completion., type: string,
+        x-ms-summary: Survey Redirect Url, x-ms-visibility: advanced}
+      thank_you_message: {description: Message for thank you page., type: string,
+        x-ms-summary: Thank You Message, x-ms-visibility: advanced}
+      response_count: {format: int32, description: The number of survey responses.,
+        type: integer, x-ms-summary: Response Count, x-ms-visibility: important}
+      closed_page_message: {description: Message shown when a survey is closed., type: string,
+        x-ms-summary: Closed Message, x-ms-visibility: advanced}
+      href: {description: Link to the survey collector., type: string, x-ms-summary: Link,
+        x-ms-visibility: advanced}
+      close_date: {description: Close date of collector., type: string, x-ms-summary: Close
+          Date, x-ms-visibility: advanced}
+      id: {description: The collector identifier., type: string, x-ms-summary: Collector
+          Id, x-ms-visibility: advanced}
+      name: {description: The name of the collector., type: string, x-ms-summary: Name,
+        x-ms-visibility: important}
+      date_modified: {format: date-time, description: The date the collector was last
+          modified., type: string, x-ms-summary: Modified Date, x-ms-visibility: advanced}
+      edit_response_type: {description: Type of response., type: string, x-ms-summary: Response
+          Type, x-ms-visibility: advanced}
+      sender_email: {description: Collector sender email., type: string, x-ms-summary: Sender
+          Email, x-ms-visibility: advanced}
+      date_created: {format: date-time, description: The date the collector was created.,
+        type: string, x-ms-summary: Created Date, x-ms-visibility: advanced}
+      disqualification_message: {description: Message for disqualification page.,
+        type: string, x-ms-summary: Disqualification Date, x-ms-visibility: advanced}
+      type: {description: 'Collector type: ''weblink’ or ''email’.', type: string,
+        x-ms-summary: Collector Type, x-ms-visibility: advanced}
+  Survey:
+    type: object
+    properties:
+      response_count: {format: int32, description: Number of responses survey has
+          received., type: integer, x-ms-summary: Response Count, x-ms-visibility: important}
+      page_count: {format: int32, description: Number of pages in the survey., type: integer,
+        x-ms-summary: Page Count, x-ms-visibility: advanced}
+      id: {description: The survey identifier., type: string, x-ms-summary: Survey
+          Id, x-ms-visibility: advanced}
+      question_count: {format: int32, description: Number of questions in survey.,
+        type: integer, x-ms-summary: Question Count, x-ms-visibility: advanced}
+      category: {description: Survey category chosen when creating the survey., type: string,
+        x-ms-summary: Survey Category, x-ms-visibility: advanced}
+      preview: {description: Survey preview URL., type: string, x-ms-summary: Preview
+          Url, x-ms-visibility: advanced}
+      language: {description: Survey language., type: string, x-ms-summary: Language,
+        x-ms-visibility: advanced}
+      date_modified: {format: date-time, description: The date the survey was last
+          modified., type: string, x-ms-summary: Modified Date, x-ms-visibility: advanced}
+      title: {description: The title of the survey., type: string, x-ms-summary: Title,
+        x-ms-visibility: important}
+      analyze_url: {description: The URL for the results of the survey., type: string,
+        x-ms-summary: Analyze Url, x-ms-visibility: important}
+      summary_url: {description: The URL for the summary of the survey., type: string,
+        x-ms-summary: Summary Url, x-ms-visibility: important}
+      date_created: {format: date-time, description: The date the survey was created.,
+        type: string, x-ms-summary: Created Date, x-ms-visibility: advanced}
+      collect_url: {description: Survey collect URL., type: string, x-ms-summary: Collect
+          Url, x-ms-visibility: advanced}
+      edit_url: {description: Survey edit URL., type: string, x-ms-summary: Edit Url,
+        x-ms-visibility: advanced}
+  SurveyMessages:
+    type: object
+    properties:
+      data:
+        type: array
+        items:
+          type: object
+          properties:
+            status: {description: The status of the message., type: string, x-ms-summary: Message
+                status, x-ms-visibility: important}
+            href: {description: Link to message., type: string, x-ms-summary: Link,
+              x-ms-visibility: important}
+            type: {description: Type of message., type: string, x-ms-summary: Type,
+              x-ms-visibility: advanced}
+            id: {description: The message identifier., type: string, x-ms-summary: Message
+                Id, x-ms-visibility: advanced}
+  SurveyMessageResponse:
+    type: object
+    properties:
+      is_scheduled: {description: Link to message results., type: string, x-ms-summary: Link,
+        x-ms-visibility: advanced}
+      scheduled_date: {format: date-time, description: Date message was scheduled
+          to be sent., type: string, x-ms-summary: Scheduled Date, x-ms-visibility: advanced}
+      body: {description: The plain text body of the email message to be sent to recipients.,
+        type: string, x-ms-summary: Message Body, x-ms-visibility: important}
+      subject: {description: Subject of the email message to be sent to recipients.,
+        type: string, x-ms-summary: Subject, x-ms-visibility: important}
+      recipients:
+        description: List of recipient ids.
+        type: array
+        items: {type: string}
+        x-ms-summary: Recipients
+        x-ms-visibility: advanced
+      recipient_status: {description: The recipient status., type: string, x-ms-summary: States,
+        x-ms-visibility: advanced}
+      type: {type: string, x-ms-visibility: advanced}
+  NewSurveys:
+    type: array
+    items:
+      type: object
+      properties:
+        href: {description: Link to the survey., type: string, x-ms-summary: Link,
+          x-ms-visibility: advanced}
+        id: {description: The survey identifier., type: string, x-ms-summary: Survey
+            Id, x-ms-visibility: important}
+        title: {description: The title of the survey., type: string, x-ms-summary: Title,
+          x-ms-visibility: important}
+  NewCollectors:
+    type: array
+    items:
+      type: object
+      properties:
+        href: {description: Link to survey collector., type: string, x-ms-summary: Link,
+          x-ms-visibility: advanced}
+        id: {description: The collector identifier., type: string, x-ms-summary: Collector
+            Id, x-ms-visibility: advanced}
+        name: {description: The name of the collector., type: string, x-ms-summary: Name,
+          x-ms-visibility: important}
+  SurveyResponses:
+    type: array
+    items:
+      type: object
+      properties:
+        total_time: {format: int32, description: Total time spent on the response.,
+          type: integer, x-ms-summary: Time Spent, x-ms-visibility: advanced}
+        href: {description: Survey response link., type: string, x-ms-summary: Link,
+          x-ms-visibility: important}
+        ip_address: {description: IP address of responder., type: string, x-ms-summary: IP
+            Address, x-ms-visibility: advanced}
+        id: {description: The response identifier., type: string, x-ms-summary: Response
+            Id, x-ms-visibility: advanced}
+        date_modified: {format: date-time, description: The date the response was
+            last modified., type: string, x-ms-summary: Modified Date, x-ms-visibility: advanced}
+        response_status: {description: Status of the response., type: string, x-ms-summary: Response
+            Status, x-ms-visibility: advanced}
+        custom_value: {description: Custom value associated with a response., type: string,
+          x-ms-summary: Custom Value, x-ms-visibility: advanced}
+        analyze_url: {description: Link to the analyze page to view the response.,
+          type: string, x-ms-summary: Analyze Url, x-ms-visibility: important}
+        recipient_id: {description: The recipient identifier., type: string, x-ms-summary: Recipient
+            Id, x-ms-visibility: advanced}
+        collector_id: {description: The collector identifier., type: string, x-ms-summary: Collector
+            Id, x-ms-visibility: advanced}
+        date_created: {format: date-time, description: The date the response was created.,
+          type: string, x-ms-summary: Created Date, x-ms-visibility: important}
+        survey_id: {description: The survey identifier., type: string, x-ms-summary: Survey
+            Id, x-ms-visibility: advanced}
+        collection_mode: {description: Response collection mode., type: string, x-ms-summary: Collection
+            Mode, x-ms-visibility: advanced}
+        edit_url: {description: Link to the survey page to edit the response., type: string,
+          x-ms-summary: Edit Url, x-ms-visibility: advanced}
+      x-ms-visibility: advanced
+
